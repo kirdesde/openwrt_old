@@ -1,16 +1,5 @@
 // SPDX-License-Identifier: GPL-2.0-only
 
-/ {
-	nss_dummy_reg: nss-regulator {
-		compatible = "regulator-fixed";
-		regulator-name = "nss-reg";
-		regulator-min-microvolt = <848000>;
-		regulator-max-microvolt = <848000>;
-		regulator-always-on;
-		regulator-boot-on;
-	};
-};
-
 &soc {
 	nss-common {
 		compatible = "qcom,nss-common";
@@ -106,7 +95,7 @@
 		qcom,match-enabled;
 		qcom,mirror-enabled;
 		qcom,udp-st-enabled;
-		npu-supply = <&nss_dummy_reg>;
+		npu-supply = <&npu_vreg>;
 	};
 
 	nss1: nss@40800000 {

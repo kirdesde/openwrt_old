@@ -1,0 +1,32 @@
+From 614e7586af1720ebb9602ece64c32764a70b6071 Mon Sep 17 00:00:00 2001
+From: Robert Marko <robimarko@gmail.com>
+Date: Thu, 19 Jan 2023 13:30:43 +0100
+Subject: [PATCH] regulator: cpr3-npu: disable cold temp notifier
+
+Currently there is no such thing upstream, so lets remove it for now
+as its not really required.
+
+Signed-off-by: Robert Marko <robimarko@gmail.com>
+---
+ drivers/regulator/cpr3-npu-regulator.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/regulator/cpr3-npu-regulator.c b/drivers/regulator/cpr3-npu-regulator.c
+index cd5a710fe7c2c2..6f4abb83c9287f 100644
+--- a/drivers/regulator/cpr3-npu-regulator.c
++++ b/drivers/regulator/cpr3-npu-regulator.c
+@@ -498,8 +498,12 @@ static int cpr3_npu_init_regulator(struct cpr3_regulator *vreg)
+ 			"Get cold temperature threshold failed, rc=%d\n", rc);
+ 			return rc;
+ 		}
+-		register_low_temp_notif(NPU_TSENS, cold_temp,
+-							cpr3_npu_temp_notify);
++		/*
++		 * This doesnt exist upstream, so disable for now as it
++		 * shouldnt really be required.
++		 */
++		/*register_low_temp_notif(NPU_TSENS, cold_temp,
++							cpr3_npu_temp_notify);*/
+ 	}
+ 
+ 	return rc;
