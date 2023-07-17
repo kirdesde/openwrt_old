@@ -1,0 +1,23 @@
+From f93b88b1de1761a58585991dd1a9bdb7f9aa93b1 Mon Sep 17 00:00:00 2001
+From: Dirk Buchwalder
+Date: Sun, 16 July 2023 22:15:01 +0200
+Subject: [PATCH] qualcommax: ipq60xx: add nss reserved memory node
+
+Add the nss reserved memeory node incl. a label.
+
+Signed-off-by: Dirk Buchwalder <buchwalder@posteo.de>
+--- a/arch/arm64/boot/dts/qcom/ipq6018.dtsi
++++ b/arch/arm64/boot/dts/qcom/ipq6018.dtsi
+@@ -176,6 +176,12 @@
+ 			reg = <0x0 0x4ab00000 0x0 0x05500000>;
+ 			no-map;
+ 		};
++		
++		nss_region: nss@40000000 {
++			no-map;
++			reg = <0x0 0x40000000 0x0 0x00800000>;
++		};
++
+ 	};
+ 
+ 	rpm-glink {
