@@ -14,6 +14,9 @@ ipq60xx_setup_interfaces()
 	linksys,mr7350)
 		ucidef_set_interfaces_lan_wan "lan1 lan2 lan3 lan4" "wan"
 		;;
+	netgear,sxk30)
+		ucidef_set_interfaces_lan_wan "eth1 eth2 eth3 eth4" ""
+		;;
 	netgear,wax214|\
 	netgear,wax610)
 		ucidef_set_interfaces_lan_wan "lan"

@@ -11,6 +11,7 @@ platform_check_image() {
 platform_do_upgrade() {
 	case "$(board_name)" in
 	linksys,mr7350|\
+	netgear,sxk30|\
 	netgear,wax214|\
 	netgear,wax610)
 		nand_do_upgrade "$1"

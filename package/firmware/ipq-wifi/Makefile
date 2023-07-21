@@ -34,6 +34,7 @@ ALLWIFIBOARDS:= \
 	edgecore_eap102 \
 	edimax_cax1800 \
 	linksys_mr7350 \
+  netgear_sxk30 \
   netgear_wax214 \
 	netgear_wax218 \
   netgear_wax610 \
@@ -127,6 +128,7 @@ $(eval $(call generate-ipq-wifi-package,dynalink_dl-wrx36,Dynalink DL-WRX36))
 $(eval $(call generate-ipq-wifi-package,edgecore_eap102,Edgecore EAP102))
 $(eval $(call generate-ipq-wifi-package,edimax_cax1800,Edimax CAX1800))
 $(eval $(call generate-ipq-wifi-package,linksys_mr7350,Linksys MR7350))
+$(eval $(call generate-ipq-wifi-package,netgear_sxk30,Netgear SXK30))
 $(eval $(call generate-ipq-wifi-package,netgear_wax214,Netgear WAX214))
 $(eval $(call generate-ipq-wifi-package,netgear_wax218,Netgear WAX218))
 $(eval $(call generate-ipq-wifi-package,netgear_wax610,Netgear WAX610))

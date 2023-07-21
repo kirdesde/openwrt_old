@@ -35,6 +35,19 @@ define Device/linksys_mr7350
 endef
 TARGET_DEVICES += linksys_mr7350
 
+define Device/netgear_sxk30
+	$(call Device/FitImage)
+	$(call Device/UbiFit)
+	DEVICE_VENDOR := Netgear
+	DEVICE_MODEL := SXK30
+	BLOCKSIZE := 128k
+	PAGESIZE := 2048
+	DEVICE_DTS_CONFIG := config@cp03-c1
+	SOC := ipq6018
+	DEVICE_PACKAGES := ipq-wifi-netgear_sxk30
+endef
+TARGET_DEVICES += netgear_sxk30
+
 define Device/netgear_wax214
        $(call Device/FitImage)
        $(call Device/UbiFit)
