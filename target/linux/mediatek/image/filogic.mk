@@ -239,6 +239,21 @@ define Device/glinet_gl-mt3000
 endef
 TARGET_DEVICES += glinet_gl-mt3000
 
+define Device/glinet_gl-mt6000
+  DEVICE_VENDOR := GL.iNet
+  DEVICE_MODEL := GL-MT6000
+  DEVICE_DTS := mt7986a-glinet-gl-mt6000
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb3 kmod-mt7986-firmware mt7986-wo-firmware e2fsprogs f2fsck mkf2fs
+  IMAGES += factory.bin
+  IMAGE/factory.bin := append-kernel | pad-to 32M | append-rootfs
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-gl-metadata
+  ARTIFACTS := preloader.bin bl31-uboot.fip
+  ARTIFACT/preloader.bin := mt7986-bl2 emmc-ddr4
+  ARTIFACT/bl31-uboot.fip := mt7986-bl31-uboot glinet_gl-mt6000
+endef
+TARGET_DEVICES += glinet_gl-mt6000
+
 define Device/h3c_magic-nx30-pro
   DEVICE_VENDOR := H3C
   DEVICE_MODEL := Magic NX30 Pro
@@ -520,6 +535,16 @@ define Device/tplink_tl-xdr6088
   $(call Device/tplink_tl-xdr-common)
 endef
 TARGET_DEVICES += tplink_tl-xdr6088
+
+define Device/ubnt_unifi-6-plus
+  DEVICE_VENDOR := Ubiquiti
+  DEVICE_MODEL := UniFi 6 Plus
+  DEVICE_DTS := mt7981a-ubnt-unifi-6-plus
+  DEVICE_DTS_DIR := ../dts
+  DEVICE_PACKAGES := kmod-mt7981-firmware mt7981-wo-firmware e2fsprogs f2fsck mkf2fs fdisk partx-utils
+  IMAGE/sysupgrade.bin := sysupgrade-tar | append-metadata
+endef
+TARGET_DEVICES += ubnt_unifi-6-plus
 
 define Device/xiaomi_mi-router-wr30u-112m-nmbm
   DEVICE_VENDOR := Xiaomi
